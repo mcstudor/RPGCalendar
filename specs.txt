@@ -1,0 +1,34 @@
+Role Playing Calendar
+Mobile friendly web application built with .NET Core, Angular, and a Sqlite database to track in-game time, events, items, notes, etc.
+
+Core Elements:
+Game Master and Player accounts
+	- Some kind of user authentication is needed
+	- User account will have different functionality depending on role
+	- Users can have different roles for different games
+	- Game Masters have full access to add, modify, and delete calendar elements (including player game elements)
+	- Players have ability to add or remove items and notes.
+	- Players will be notified about events (triggered by Game Master)
+Configurable calendar
+	- calendar will support user selected time breakdown
+		* Game Master role can change hours, days, weeks, etc. to be any length
+		* Game Master can advance time, rewind time, or set time. 
+	- calendar configuration will be core to all other objects (Establish what breakdown events and timed elements have)
+	- Time does NOT progress unless Game Master advances it
+Events
+	- Events are created by Game Master and presented to players when the time occurs
+		* choice made by GM as to when to be made visible (always, set time)
+	- Events have alert levels 
+		* Allow of low-level events like weather or holiday or high level like attacks
+Items
+	- Items will track quantity and quality
+	- Items have an optional degradation on both quantity and quality
+	- Degrading items decrease a specific amount per time frame
+Notes
+	- Notes are user created text attached to a time
+	- Notes can have visibility to just self, self and GM, self and Players, or all
+Template Mode
+	- Template mode to allow for saving and loading calendar and events
+	
+
+	
