@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCalendar", "RPGCalendar\RPGCalendar.csproj", "{2D9E33CB-559A-419C-812F-DBB024CE286E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGCalendar", "RPGCalendar\RPGCalendar.csproj", "{2D9E33CB-559A-419C-812F-DBB024CE286E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCalendar.Data", "RPGCalendar.Data\RPGCalendar.Data.csproj", "{9F7D7F29-6A00-4415-9E64-7A886D85580B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D9E33CB-559A-419C-812F-DBB024CE286E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D9E33CB-559A-419C-812F-DBB024CE286E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D9E33CB-559A-419C-812F-DBB024CE286E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F7D7F29-6A00-4415-9E64-7A886D85580B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F7D7F29-6A00-4415-9E64-7A886D85580B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F7D7F29-6A00-4415-9E64-7A886D85580B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F7D7F29-6A00-4415-9E64-7A886D85580B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
