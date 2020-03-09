@@ -12,6 +12,8 @@ import { AccountComponent } from './account/account.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SignUpComponent } from './sign-up/signup.component';
 import { ComponentHelpComponent } from './component-help/component-help.component';
+import { GameCalendarComponent } from './game-calendar/game-calendar.component';
+import { GameOverviewComponent } from './game-overview/game-overview.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { ComponentHelpComponent } from './component-help/component-help.componen
     AccountComponent,
     SignUpComponent,
     ComponentHelpComponent,
+    FetchDataComponent,
+    GameCalendarComponent,
+    GameOverviewComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,6 +35,7 @@ import { ComponentHelpComponent } from './component-help/component-help.componen
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'gameoverview', component: GameOverviewComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'account', component: AccountComponent },

@@ -1,0 +1,30 @@
+.wrapper {
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    color: #444;
+}
+
+.header{
+margin-bottom: .5em;
+}
+
+.header > .box {
+background-color: black;
+}
+
+.box {
+    margin: .5em;
+    width: 5em;
+    background-color: #444;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px 5px 40px 5px;
+    font-size: 150%;
+}
+
+.box.head {
+padding: .2em;
+text-align: center;
+}
