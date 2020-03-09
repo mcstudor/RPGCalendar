@@ -7,22 +7,23 @@ import { CalendarService } from '../service/calendar/calendar.service';
   styleUrls: ['./game-calendar.component.css']
 })
 export class GameCalendarComponent implements OnInit {
-  headRow: string[];
-  units : string[][];
-
+  units : string[];
+  headRow : string[];
+  monthName : string;
   calendarService : CalendarService
   constructor(calendarService : CalendarService) {
      this.calendarService = calendarService;
   }
   getTemplateFormat(){
-    var cols = this.headRow.length;
-    return `repeat(${cols}, 15%)`;
+    var cols = this.calendarService.col;
+    return `repeat(${cols}, minmax(6em, auto))`;
   } 
 
 
   ngOnInit() {
-    this.headRow = this.calendarService.getHeadRow();
     this.units = this.calendarService.getUnits();
+    this.headRow = this.calendarService.getHeadRow();
+    this.monthName = this.calendarService.getMonthName();
   }
 
 }

@@ -5,32 +5,29 @@ import { Injectable } from '@angular/core';
 })
 export class CalendarService {
   constructor() { }
+  headRow : Array<string> = new Array<string>("Selday", "Tyrday", "Janday", "Keleday", "Mystraday", "Lathday", "Istiday", "Suneday", "Ogday", "Akaday"); 
+  monthName : string = "Tarsakh"
   days : number = 30;
-  col : number = this.getHeadRow.length;
+  col : number = this.headRow.length;
   rows : number = Math.ceil(this.days / this.col);
-  getUnits() : string[][]{
-    // var units : string[][];
-    // var i = 0;
-    // var j = 0;
-    // for( var day = 1; day<31; day++){
-    //   units[i][j] = String(day);
-    //   j++;
-    //   if(j>=this.getHeadRow.length){
-    //     i++;
-    //     j=0;
-    //   }
-    // }
-    // for(j; j<this.getHeadRow.length; j++){
-    //   units[i][j] = " ";
-    // }
-    // return units;
-    var row1 = ["1" , "2" , "3" , "4" , "5" , "6" , "7"];
-    var row2 = ["8" , "9" , "10" , "11" , "12" , "13" , "14"];
-    var row3 = ["15" , "16" , "17" , "18" , "19" , "20", " "];
-    return [row1, row2, row3];
+  getUnits() : string[] {
+    var units: Array<string>;
+    units = new Array<string>();
+    var day = 1;
+    for(var i = 0; i<this.days; i++){
+      units.push(String(day));
+      day++;
+    };
+    return units;
   }
 
-  getHeadRow() : string[] {
-    return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  getHeadRow() : Array<string> {
+    return this.headRow;
   }
+
+  getMonthName() : string {
+    return this.monthName;
+  }
+
+
 }
