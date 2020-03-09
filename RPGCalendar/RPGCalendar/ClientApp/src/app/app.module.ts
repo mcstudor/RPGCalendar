@@ -14,6 +14,8 @@ import { SignUpComponent } from './sign-up/signup.component';
 import { ComponentHelpComponent } from './component-help/component-help.component';
 import { GameCalendarComponent } from './game-calendar/game-calendar.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
+import { PlayerListComponent } from './player-list/player-list.component';
+import { GameListComponent } from './game-list/game-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { GameOverviewComponent } from './game-overview/game-overview.component';
     ComponentHelpComponent,
     FetchDataComponent,
     GameCalendarComponent,
-    GameOverviewComponent
+    GameOverviewComponent,
+    PlayerListComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +45,7 @@ import { GameOverviewComponent } from './game-overview/game-overview.component';
       { path: 'account', component: AccountComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'help', component: ComponentHelpComponent },
+      { path: "gamelist", component: GameListComponent }
     ])
   ],
   providers: [],

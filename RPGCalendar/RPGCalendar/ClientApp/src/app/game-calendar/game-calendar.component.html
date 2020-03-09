@@ -1,9 +1,9 @@
-<div class="wrapper header" [style.grid-template-columns]="columnTemplate">
-    <div class="box head" *ngFor="let value of headRow;">{{value}}</div>
+<div class="wrapper header" [ngStyle]="{ 'grid-template-columns': getTemplateFormat()}" >
+    <div class="box head" *ngFor="let value of headRow;"><h4>{{value}}</h4></div>
 </div>
   
-<div class="wrapper" *ngFor="let unit of units; index as i;">
+<div class="wrapper" *ngFor="let unit of units; index as i;"  [ngStyle]="{ 'grid-template-columns': getTemplateFormat()}">
     <!-- <div class="box" *ngFor=""></div> -->
-    <div class="box" *ngFor="let value of unit;">{{value}}</div>
+    <div class="box" *ngFor="let value of unit;"><h4>{{value}}</h4></div>
 </div>
     

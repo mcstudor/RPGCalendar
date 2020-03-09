@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer , SafeStyle } from '@angular/platform-browser';
+import { CalendarService } from '../service/calendar/calendar.service';
 
 @Component({
   selector: 'app-game-calendar',
@@ -7,19 +7,22 @@ import { DomSanitizer , SafeStyle } from '@angular/platform-browser';
   styleUrls: ['./game-calendar.component.css']
 })
 export class GameCalendarComponent implements OnInit {
-  headRow: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  row1: string[] = ["1" , "2" , "3" , "4" , "5" , "6" , "7"];
-  row2: string[] = ["8" , "9" , "10" , "11" , "12" , "13" , "14"];
-  row3: string[] = ["15" , "16" , "17" , "18" , "19" , "20", " "];
-  units : string[][] = [this.row1,this.row2 , this.row3]
-  cols: number  = 4;
-  constructor(private sanitizer: DomSanitizer) {
-     
-  }
+  headRow: string[];
+  units : string[][];
 
-  getColumnTemplate : SafeStyle  = this.sanitizer.bypassSecurityTrustStyle(`grid-template-columns: repeat(4" , "auto)`);
+  calendarService : CalendarService
+  constructor(calendarService : CalendarService) {
+     this.calendarService = calendarService;
+  }
+  getTemplateFormat(){
+    var cols = this.headRow.length;
+    return `repeat(${cols}, 15%)`;
+  } 
+
 
   ngOnInit() {
+    this.headRow = this.calendarService.getHeadRow();
+    this.units = this.calendarService.getUnits();
   }
 
 }
