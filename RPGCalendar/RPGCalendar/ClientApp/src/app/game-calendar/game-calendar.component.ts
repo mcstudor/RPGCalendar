@@ -7,7 +7,7 @@ import { CalendarService } from '../service/calendar/calendar.service';
   styleUrls: ['./game-calendar.component.css']
 })
 export class GameCalendarComponent implements OnInit {
-  units : string[];
+  units : string[][];
   headRow : string[];
   monthName : string;
   calendarService : CalendarService

@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CalendarService {
+  getMonthName(): string {
+    throw new Error("Method not implemented.");
+  }
   constructor() { }
   days : number = 30;
   col : number = this.getHeadRow.length;
