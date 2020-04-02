@@ -1,0 +1,58 @@
+.player{
+    font: large;
+    font-style: italic;
+
+}
+
+.p1 {
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  width: 20%;
+  height: 230px;
+  background-color: lightgrey;
+  background-image:url("im1.jpg");
+}
+
+.p2 {
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  width: 20%;
+  height: 230px;
+  background-color: lightgrey;
+  background-image: url("im2.jpg");
+}
+.p3 {
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  width: 20%;
+  height: 230px;
+  background-color: lightgrey;
+  background-image: url("im3.png");
+}
+.p4 {
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  width: 20%;
+  height: 230px;
+  background-color: lightgrey;
+  background-image: url("im4.png");
+}
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: whitesmoke;
+  background-color: lightslategrey;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
+}
+

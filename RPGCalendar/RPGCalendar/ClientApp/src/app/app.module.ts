@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
+import { AuthGuard} from './auth.guard'
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -10,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { AccountComponent } from './account/account.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { SignUpComponent } from './sign-up/signup.component';
+import { RegisterComponent } from './register/register.component';
 import { ComponentHelpComponent } from './component-help/component-help.component';
 import { GameCalendarComponent } from './game-calendar/game-calendar.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
@@ -25,7 +29,9 @@ import { GameListComponent } from './game-list/game-list.component';
     CounterComponent,
     FetchDataComponent,
     AccountComponent,
-    SignUpComponent,
+    LoginComponent,
+    AdminComponent,
+    RegisterComponent,
     ComponentHelpComponent,
     FetchDataComponent,
     GameCalendarComponent,
@@ -37,13 +43,17 @@ import { GameListComponent } from './game-list/game-list.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: LoginComponent, pathMatch: 'full' },
+      //{ path: '', pathMatch: 'full', redirectTo: 'login'},
       { path: 'gameoverview', component: GameOverviewComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'account', component: AccountComponent },
-      { path: 'sign-up', component: SignUpComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+      { path: 'register', component: RegisterComponent },
       { path: 'help', component: ComponentHelpComponent },
       { path: "gamelist", component: GameListComponent }
     ])

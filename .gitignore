@@ -1,2 +1,4 @@
 ﻿**/.vs
 /RPGCalendar/out
+**/bin
+**/obj
