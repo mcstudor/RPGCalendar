@@ -4,9 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CalendarService {
-  getMonthName(): string {
-    throw new Error("Method not implemented.");
-  }
   constructor() { }
   headRow : Array<string> = new Array<string>("Selday", "Tyrday", "Janday", "Keleday", "Mystraday", "Lathday", "Istiday", "Suneday", "Ogday", "Akaday"); 
   monthName : string = "Tarsakh"

@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace RPGCalendar.Data
 {
+    using System.ComponentModel.DataAnnotations;
     public class EntityBase
     {
         [Required]
-        public int id { get; protected set; }
+        public int Id { get; protected set; }
     }
 }

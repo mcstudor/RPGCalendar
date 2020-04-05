@@ -1,8 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace RPGCalendar.Data
+﻿namespace RPGCalendar.Data
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public class FingerPrintEntityBase : EntityBase
     {
         [Required]
