@@ -19,7 +19,8 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    restoreSolution: '**/*.sln'
 
 - task: VSBuild@1
   inputs:
