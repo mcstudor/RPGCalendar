@@ -20,6 +20,7 @@ import { GameCalendarComponent } from './game-calendar/game-calendar.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { GameListComponent } from './game-list/game-list.component';
+import { SignUpComponent} from './sign-up/signup.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GameListComponent } from './game-list/game-list.component';
     GameCalendarComponent,
     GameOverviewComponent,
     PlayerListComponent,
-    GameListComponent
+    GameListComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
