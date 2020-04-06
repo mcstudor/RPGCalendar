@@ -48,6 +48,7 @@ import { SignUpComponent} from './sign-up/signup.component'
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent, pathMatch: 'full' },
+      {path:  'auth', loadChildren:  './auth/auth.module#AuthModule'},
       //{ path: '', pathMatch: 'full', redirectTo: 'login'},
       { path: 'gameoverview', component: GameOverviewComponent },
       { path: 'counter', component: CounterComponent },
