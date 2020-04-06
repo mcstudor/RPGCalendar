@@ -1,5 +1,5 @@
 .container {
-    background:rgba(77, 78, 78, 0.5);
+    background:rgba(2, 60, 117, 0.5);
     border-radius: 5px;
     box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
     width:409px;
@@ -51,7 +51,6 @@
   
   .form-register label,
   .form-register input[type="email"],
-  .form-register input[type="text"]
   .form-register input[type="password"],
   .form-register input[type="submit"] {
     border-radius: 0.25rem;
@@ -67,7 +66,7 @@
     padding-right: 1.25rem;
   }
   
-  .form-register input[type="email"], .form-register input[type="text"], .form-register input[type="password"] {
+  .form-register input[type="email"], .form-register input[type="password"] {
     background-color: #ffffff;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -76,7 +75,7 @@
     background-color: #eeeeee;
   }
   .form-register input[type="submit"] {
-    background-color: rgb(96, 8, 238);
+    background-color: rgb(86, 69, 238);
     color: #eee;
     font-weight: bold;
     text-transform: uppercase;
