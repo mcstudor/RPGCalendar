@@ -14,6 +14,7 @@
 #nullable disable
         public DbSet<User> Users { get; set; }
         public DbSet<GameNote> GameNotes { get; set; }
+        public DbSet<GameEvent> GameEvents { get; set; }
         private IHttpContextAccessor HttpContextAccessor { get; set; }
 #nullable enable
 
