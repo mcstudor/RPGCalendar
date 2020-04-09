@@ -10,6 +10,9 @@
         {
             CreateMap<Dto.GameNoteInput, GameNote>();
             CreateMap<GameNote, Dto.GameNote>();
+
+            CreateMap<Dto.GameEventInput, GameEvent>();
+            CreateMap<GameEvent, Dto.GameEvent>();
         }
 
         public static IMapper CreateMapper()

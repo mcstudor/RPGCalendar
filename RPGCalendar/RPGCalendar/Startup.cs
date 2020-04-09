@@ -105,7 +105,8 @@ namespace RPGCalendar
 
             services.Configure<RpgCalendarSettings>(Configuration.GetSection(nameof(RpgCalendarSettings)));
             services.AddTransient<IGameNoteService, GameNoteService>()
-                    .AddTransient<IAuthenticationService, AuthenticationService>();
+                    .AddTransient<IAuthenticationService, AuthenticationService>()
+                    .AddTransient<IGameEventService, GameEventService>();
 
             services.AddAutoMapper(new[] { typeof(AutomapperConfigurationProfile).Assembly });
             services.ConfigureApplicationCookie(options =>
