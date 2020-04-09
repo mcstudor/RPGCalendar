@@ -31,10 +31,5 @@ namespace RPGCalendar.Controllers
                 : StatusCode(StatusCodes.Status400BadRequest);
         }
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok();
-        }
     }
 }
