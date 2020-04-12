@@ -13,6 +13,15 @@
 
             CreateMap<Dto.GameEventInput, GameEvent>();
             CreateMap<GameEvent, Dto.GameEvent>();
+
+            CreateMap<Dto.GameItemInput, GameItem>();
+            CreateMap<GameItem, Dto.GameItem>();
+
+            CreateMap<Dto.GameNotificationInput, GameNotification>();
+            CreateMap<GameNotification, Dto.GameNotification>();
+
+            CreateMap<Dto.GameInput, Game>();
+            CreateMap<Game, Dto.Game>();
         }
 
         public static IMapper CreateMapper()

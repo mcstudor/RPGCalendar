@@ -15,6 +15,9 @@
         public DbSet<User> Users { get; set; }
         public DbSet<GameNote> GameNotes { get; set; }
         public DbSet<GameEvent> GameEvents { get; set; }
+        public DbSet<GameItem> GameItems { get; set; }
+        public DbSet<GameNotification> GameNotifications { get; set; }
+        public DbSet<Game> Games { get; set; }
         private IHttpContextAccessor HttpContextAccessor { get; set; }
 #nullable enable
 
