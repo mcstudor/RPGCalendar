@@ -1,1 +1,18 @@
-<p>game-list works!</p>
+<h1 style="text-align:center">
+    Welcome to your Game List!
+  </h1>
+  
+  <div class="login">
+    <form [formGroup]="gameForm" class="gamelist-container" (ngSubmit)="createGame()">
+  
+      
+  
+      <p>
+        <input type="submit" value="Create Game">
+        
+      </p>
+      <input type ="button" value="Add Game">
+
+    </form>
+    
+  </div>
