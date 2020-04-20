@@ -1,0 +1,10 @@
+.mainBox{
+    border-color: slateblue;
+    border-bottom-style: groove;
+    color: black;
+}
+.header{
+    font-style: oblique;
+    border-bottom-style: groove;
+    border-color: slateblue;
+}
