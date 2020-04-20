@@ -12,7 +12,7 @@
         public string? Description { get; set; }
     }
 
-    public class GameNotification : GameNotificationInput
+    public class GameNotification : GameNotificationInput, IEntity
     {
         public int Id { get; set; }
     }
