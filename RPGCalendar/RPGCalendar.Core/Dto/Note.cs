@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class GameNoteInput
+    public class NoteInput
     {
         [Required]
         public string? Title { get; set; }
@@ -12,7 +12,7 @@
         public DateTime Date { get; set; }
 
     }
-    public class GameNote : GameNoteInput, IEntity
+    public class Note : NoteInput, IEntity
     {
         public int Id { get; set; }
     }

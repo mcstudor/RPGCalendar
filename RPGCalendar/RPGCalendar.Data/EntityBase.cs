@@ -5,6 +5,7 @@ namespace RPGCalendar.Data
     public class EntityBase
     {
         [Required]
+        [Key]
         public int Id { get; protected set; }
     }
 }

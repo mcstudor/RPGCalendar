@@ -31,7 +31,7 @@ namespace RPGCalendar.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TDto>> Get(int id)
         {
-            TDto entity = await Service.FetchByIdAsync(id);
+            TDto? entity = await Service.FetchByIdAsync(id);
             if (entity is null)
             {
                 return NotFound();
@@ -41,15 +41,24 @@ namespace RPGCalendar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<TDto?> Put(int id, TInputDto value)
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<TDto?>> Put(int id, TInputDto value)
         {
-            return await Service.UpdateAsync(id, value);
+            var result = await Service.UpdateAsync(id, value);
+            if (result is null)
+                return NotFound();
+            return Ok(result);
         }
 
         [HttpPost]
-        public async Task<TDto> Post(TInputDto entity)
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<TDto?>> Post(TInputDto entity)
         {
-            return await Service.InsertAsync(entity);
+            var result = await Service.InsertAsync(entity);
+            if(result is null)
+                return Unauthorized();
+            return Ok(result);
+
         }
 
         [HttpDelete("{id}")]

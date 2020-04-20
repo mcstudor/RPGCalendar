@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    public class GameItemInput
+    public class ItemInput
     {
         [Required]
         public string? Name { get; set; }
@@ -19,7 +19,7 @@
         public decimal QualityDegration { get; set; }
     }
 
-    public class GameItem : GameItemInput, IEntity
+    public class Item : ItemInput, IEntity
     {
         public int Id { get; set; }
     }

@@ -8,13 +8,15 @@
         [Required]
         public string? Title { get; set; }
         [Required]
-        public int GameMaster { get; set; }
-        public List<int>? Players { get; set; }
+        public string? Description { get; set; }
+        [Required] 
+        public string? GameSystem { get; set; }
         [Required]
         public GameCalendar? GameCalendar { get; set; }
     }
-    public class Game : GameInput
+    public class Game : GameInput, IEntity
     {
         public int Id { get; set; }
+        public int GameMaster { get; set; }
     }
 }

@@ -8,15 +8,16 @@
     using System.Security.Claims;
     using System.Threading;
     using System.Threading.Tasks;
+    using GameObjects;
 
     public class ApplicationDbContext : DbContext
     {
 #nullable disable
         public DbSet<User> Users { get; set; }
-        public DbSet<GameNote> GameNotes { get; set; }
-        public DbSet<GameEvent> GameEvents { get; set; }
-        public DbSet<GameItem> GameItems { get; set; }
-        public DbSet<GameNotification> GameNotifications { get; set; }
+        public DbSet<Note> GameNotes { get; set; }
+        public DbSet<Event> GameEvents { get; set; }
+        public DbSet<Item> GameItems { get; set; }
+        public DbSet<Notification> GameNotifications { get; set; }
         public DbSet<Game> Games { get; set; }
         //public DbSet<GameCalendar> GameCalendars { get; set; }
         
@@ -32,6 +33,7 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
         //    _ = modelBuilder?.Entity<UserGroup>().HasKey(ug => new { ug.UserId, ug.GroupId });
 
         //    modelBuilder?.Entity<UserGroup>().HasOne(ug => ug.User).WithMany(u => u.UserGroups).HasForeignKey(ug => ug.UserId);

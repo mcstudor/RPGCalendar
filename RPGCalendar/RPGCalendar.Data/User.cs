@@ -1,39 +1,38 @@
 ﻿namespace RPGCalendar.Data
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
 
     public class User : FingerPrintEntityBase
     {
-        public string FirstName
+        private string _username = string.Empty;
+        public string Username
         {
-            get => _firstName;
-            set => _firstName = value ?? throw new ArgumentNullException(nameof(FirstName));
+            get => _username;
+            set => _username = value ?? throw new ArgumentNullException(nameof(Username));
         }
 
-        private string _firstName = string.Empty;
-
-        public string LastName
-        {
-            get => _lastName;
-            set => _lastName = value ?? throw new ArgumentNullException(nameof(LastName));
-        }
-
-        private string _lastName = string.Empty;
-
+        private string _email = string.Empty;
         public string Email
         {
             get => _email; 
             set => _email = value ?? throw new ArgumentNullException(nameof(Email));
         }
-        private string _email = string.Empty;
+        private string _authId = string.Empty;
 
-        public int? AcctId{ get; set; }
-        public User? Acct { get; set; }
-
-        public User(string firstName, string lastName)
+        public string AuthId
         {
-            FirstName = firstName;
-            LastName = lastName;
+            get => _authId;
+            set => _authId = value ?? throw new ArgumentNullException(nameof(AuthId));
+        }
+
+        public ICollection<Game> Games { get; set; } = new HashSet<Game>();
+
+        public User(string email, string authId)
+        {
+            Email = email;
+            AuthId = authId;
         }
     }
 }

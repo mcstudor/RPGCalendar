@@ -16,8 +16,10 @@ namespace RPGCalendar
     using Core.Models;
     using Core.Services;
     using Data;
+    using Data.GameObjects;
     using Identity;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.Authorization;
 
     public class Startup
@@ -43,7 +45,6 @@ namespace RPGCalendar
         {
            
 
-            //TODO: Add authentication filter for pages other than login and new user
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(new AuthorizeFilter(
@@ -104,12 +105,19 @@ namespace RPGCalendar
             });
 
             services.Configure<RpgCalendarSettings>(Configuration.GetSection(nameof(RpgCalendarSettings)));
-            services.AddTransient<IGameNoteService, GameNoteService>()
+            services.AddTransient<INoteService, NoteService>()
                     .AddTransient<IAuthenticationService, AuthenticationService>()
-                    .AddTransient<IGameEventService, GameEventService>()
-                    .AddTransient<IGameItemService, GameItemService>()
-                    .AddTransient<IGameNotificationService, GameNotificationService>()
-                    .AddTransient<IGameService, GameService>();
+                    .AddTransient<IEventService, EventService>()
+                    .AddTransient<IItemService, ItemService>()
+                    .AddTransient<INotificationService, NotificationService>()
+                    .AddTransient<IGameService, GameService>()
+                    .AddTransient<IUserService, UserService>()
+                    .AddTransient<ISessionService, SessionService>();
+                    
+            services.AddTransient<IPermissionsService<Note>, PermissionsService<Note>>()
+                    .AddTransient<IPermissionsService<Event>, PermissionsService<Event>>()
+                    .AddTransient<IPermissionsService<Item>, PermissionsService<Item>>()
+                    .AddTransient<IPermissionsService<Notification>, PermissionsService<Notification>>();
 
             services.AddAutoMapper(new[] { typeof(AutomapperConfigurationProfile).Assembly });
             services.ConfigureApplicationCookie(options =>
