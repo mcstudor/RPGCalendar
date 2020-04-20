@@ -11,7 +11,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { AccountComponent } from './account/account.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,14 +19,16 @@ import { GameCalendarComponent } from './game-calendar/game-calendar.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { GameListComponent } from './game-list/game-list.component';
-import { SignUpComponent} from './sign-up/signup.component'
+import { ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {ResponseResetComponent} from  './response-reset/response-reset.component';
+import {EventsComponent} from './events/events.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     FetchDataComponent,
     AccountComponent,
     LoginComponent,
@@ -39,7 +40,9 @@ import { SignUpComponent} from './sign-up/signup.component'
     GameOverviewComponent,
     PlayerListComponent,
     GameListComponent,
-    SignUpComponent
+    ForgotPasswordComponent,
+    EventsComponent,
+    ResponseResetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,14 +54,16 @@ import { SignUpComponent} from './sign-up/signup.component'
       {path:  'auth', loadChildren:  './auth/auth.module#AuthModule'},
       //{ path: '', pathMatch: 'full', redirectTo: 'login'},
       { path: 'gameoverview', component: GameOverviewComponent },
-      { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'account', component: AccountComponent },
       { path: 'login', component: LoginComponent },
       { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
       { path: 'register', component: RegisterComponent },
       { path: 'help', component: ComponentHelpComponent },
-      { path: "gamelist", component: GameListComponent }
+      { path: "gamelist", component: GameListComponent },
+      { path: "forgot-password", component: ForgotPasswordComponent },
+      {path: "event", component: EventsComponent},
+      { path: "password-reset", component: ResponseResetComponent }
     ])
   ],
   providers: [],

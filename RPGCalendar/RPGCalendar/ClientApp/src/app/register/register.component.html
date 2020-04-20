@@ -1,29 +1,41 @@
-<div class="container">
-    <div class="logo">Create a new account!</div>
-    <div class="register-item">
-      <form #myform="ngForm" (ngSubmit)="register(myform)" class="form form-register">
-
-        <div class="form-field">
-              <label class="user" for="register-username"><span class="hidden">Name</span></label>
-              <input name="name" id="register-username" type="email" class="form-input" placeholder="Name" ngModel required>
-        </div>
-        <div class="form-field">
-            <label class="user" for="register-item"><span class="hidden">Username</span></label>
-            <input name="Username" id="register-userid" type="text" class="form-input" placeholder="Username" ngModel required>
+<div class="container-fluid form">
+  <div class="row form-row ">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card my-5">
+              <div class="card-body">
+                  <h5 class="card-title text-center" >SIGN UP</h5>
+                  <div>
+                      <div id="errorMsg" *ngIf="errorMessage">
+                          <span>{{errorMessage}}</span>
+                      </div>
+                      <form action="" [formGroup]="SignupForm" (ngSubmit)="signupUser()">
+                          <div class="form-group form-signup">
+                              <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Username"
+                                     type="text" id="username" formControlName="username" />
+                              <span *ngIf="!SignupForm.get('username').valid && SignupForm.get('username').touched"
+                                    class="help-block">Please enter a valid username!</span>
+                          </div>
+                          <div class="form-group">
+                              <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="E-mail" type="text"
+                                     id="email" formControlName="email" />
+                              <span *ngIf="!SignupForm.get('email').valid && SignupForm.get('email').touched" class="help-block">
+                                  Please
+                                  enter a valid email!
+                              </span>
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control form-control-lg" placeholder="Password" type="password"
+                                     formControlName="password" />
+                              <span *ngIf="!SignupForm.get('password').valid && SignupForm.get('password').touched"
+                                    class="help-block">Password is required and must have more than 4 characters!</span>
+                          </div>
+                          <div class="form-group">
+                              <button type="submit" class=" btn btn-primary" (ngSubmit)="signupUser()">Sign Up</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
       </div>
-        <div class="form-field">
-          <label class="user" for="register-email"><span class="hidden">Email</span></label>
-          <input name="email" id="register-email" type="email" class="form-input" placeholder="Email" ngModel required>
-        </div>
-
-        <div class="form-field">
-          <label class="lock" for="register-password"><span class="hidden">Password</span></label>
-          <input name="password" id="register-password" type="password" class="form-input" placeholder="Password" ngModel required>
-        </div>
-
-        <div class="form-field">
-          <input type="submit" value="Register">
-        </div>
-      </form>
-    </div>
+  </div>
 </div>

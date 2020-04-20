@@ -32,6 +32,15 @@
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
   }
+
+  .card-title {
+    color: rgb(41, 4, 248);
+    text-emphasis-style: none;
+  }
+  
+  .help-block{
+    color: red;
+  }
   
   .user:before {
     content: '\f007';

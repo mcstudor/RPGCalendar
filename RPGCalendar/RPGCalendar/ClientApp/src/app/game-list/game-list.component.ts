@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { readdir } from 'fs';
+import { Router } from  '@angular/router';
 
 @Component({
   selector: 'app-game-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  createGame(){
+    this.router.navigateByUrl('./gameoverview');
   }
 
 }
