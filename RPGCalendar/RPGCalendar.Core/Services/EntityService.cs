@@ -14,8 +14,8 @@ namespace RPGCalendar.Core.Services
         where TDto : class, TInputDto
     {
         Task<List<TDto>> FetchAllAsync();
-        Task<TDto> FetchByIdAsync(int id);
-        Task<TDto> InsertAsync(TInputDto entity);
+        Task<TDto?> FetchByIdAsync(int id);
+        Task<TDto?> InsertAsync(TInputDto entity);
         Task<TDto?> UpdateAsync(int id, TInputDto entity);
         Task<bool> DeleteAsync(int id);
     }
@@ -37,7 +37,7 @@ namespace RPGCalendar.Core.Services
             Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public virtual async Task<bool> DeleteAsync(int id)
         {
             TEntity entity = await Query.FirstOrDefaultAsync(x => x.Id == id);
             if (entity is { })
@@ -54,12 +54,12 @@ namespace RPGCalendar.Core.Services
             return Mapper.Map<List<TEntity>, List<TDto>>(await Query.ToListAsync());
         }
 
-        public async Task<TDto> FetchByIdAsync(int id)
+        public virtual async Task<TDto?> FetchByIdAsync(int id)
         {
             return Mapper.Map<TEntity, TDto>(await Query.FirstOrDefaultAsync(x => x.Id == id));
         }
 
-        public async Task<TDto> InsertAsync(TInputDto dto)
+        public virtual async Task<TDto?> InsertAsync(TInputDto dto)
         {
             TEntity entity = Mapper.Map<TInputDto, TEntity>(dto);
             DbContext.Add(entity);
@@ -67,7 +67,7 @@ namespace RPGCalendar.Core.Services
             return Mapper.Map<TEntity, TDto>(entity);
         }
 
-        public async Task<TDto?> UpdateAsync(int id, TInputDto entity)
+        public virtual async Task<TDto?> UpdateAsync(int id, TInputDto entity)
         {
             if (await Query.FirstOrDefaultAsync(x => x.Id == id) is TEntity result)
             {

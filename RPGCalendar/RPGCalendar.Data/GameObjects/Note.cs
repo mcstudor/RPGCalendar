@@ -1,8 +1,8 @@
-﻿namespace RPGCalendar.Data
+﻿namespace RPGCalendar.Data.GameObjects
 {
     using System;
 
-    public class GameNote : FingerPrintEntityBase
+    public class Note : GameObject
     {
 
         private string _title = string.Empty;

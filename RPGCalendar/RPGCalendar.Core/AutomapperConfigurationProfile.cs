@@ -1,27 +1,35 @@
 ﻿namespace RPGCalendar.Core
 {
+    using System.Collections.Generic;
     using System.Reflection;
     using AutoMapper;
     using Data;
+    using Data.GameObjects;
 
     public class AutomapperConfigurationProfile : Profile
     {
         public AutomapperConfigurationProfile()
         {
-            CreateMap<Dto.GameNoteInput, GameNote>();
-            CreateMap<GameNote, Dto.GameNote>();
+            CreateMap<Dto.NoteInput, Note>();
+            CreateMap<Note, Dto.Note>();
 
-            CreateMap<Dto.GameEventInput, GameEvent>();
-            CreateMap<GameEvent, Dto.GameEvent>();
+            CreateMap<Dto.EventInput, Event>();
+            CreateMap<Event, Dto.Event>();
 
-            CreateMap<Dto.GameItemInput, GameItem>();
-            CreateMap<GameItem, Dto.GameItem>();
+            CreateMap<Dto.ItemInput, Item>();
+            CreateMap<Item, Dto.Item>();
 
-            CreateMap<Dto.GameNotificationInput, GameNotification>();
-            CreateMap<GameNotification, Dto.GameNotification>();
+            CreateMap<Dto.NotificationInput, Notification>();
+            CreateMap<Notification, Dto.Notification>();
 
             CreateMap<Dto.GameInput, Game>();
             CreateMap<Game, Dto.Game>();
+
+            CreateMap<Dto.UserInput, User>();
+            CreateMap<User, Dto.User>().ForMember(des => des.AuthId, 
+                opt => opt.Ignore());
+/*            CreateMap<Dto.GameCalendarInput, GameCalendar>();
+            CreateMap<GameCalendar, Dto.GameCalendar>();*/
         }
 
         public static IMapper CreateMapper()

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RPGCalendar.Identity
+﻿namespace RPGCalendar.Identity
 {
     using System.ComponentModel.DataAnnotations;
 
     public class RegistrationModel
     {
+        [Required]
+        public string? Username { get; set; }
         [Required]
         [EmailAddress]
         public string? Email { get; set; }

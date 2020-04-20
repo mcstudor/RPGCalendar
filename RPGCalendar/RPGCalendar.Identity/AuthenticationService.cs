@@ -1,12 +1,14 @@
 ﻿namespace RPGCalendar.Identity
 {
+    using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
 
     public interface IAuthenticationService
     {
-        Task<bool> Login(LoginModel model);
-        Task<bool> Register(RegistrationModel model);
+        Task<string?> Login(LoginModel model);
+        Task<string?> Register(RegistrationModel model);
     }
 
     public class AuthenticationService : IAuthenticationService
@@ -20,26 +22,39 @@
             _signInManager = signInManager;
             _userManager = userManager;
         }
-        public async Task<bool> Login(LoginModel model)
+        public async Task<string?> Login(LoginModel model)
         {
-
-            var result = await _signInManager.PasswordSignInAsync(model.Email,
-                model.Password, model.RememberMe, lockoutOnFailure: false);
-            return result.Succeeded;
-        }
-
-        public async Task<bool> Register(RegistrationModel model)
-        {
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
+            if (model.Email is null && model.Username is null)
+                return null;
+            string? userId = null;
+            if (model.Username is { })
             {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return true;
+                var result = await _signInManager.PasswordSignInAsync(model.Username,
+                    model.Password, model.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                    userId = (await _userManager.Users.FirstAsync(ur => ur.UserName == model.Username)).Id;
+            }
+            else if(model.Email is { })
+            {
+                var user = await _userManager.Users.FirstAsync(ur => ur.Email == model.Email);
+                var result = await _signInManager.PasswordSignInAsync(user.UserName,
+                    model.Password, model.RememberMe, lockoutOnFailure: false);
+                userId = user.Id;
             }
 
-            return false;
+            return userId;
+        }
 
+        public async Task<string?> Register(RegistrationModel model)
+        {
+            var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
+                return null;
+            
+
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            return user.Id;
 
 
         }

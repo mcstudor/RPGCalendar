@@ -4,22 +4,16 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class GameEventInput
+    public class NotificationInput
     {
         [Required]
         public string? Title { get; set; }
         [Required]
         public string? Description { get; set; }
-        [Required]
-        public DateTime? StartTime { get; set; }
-        [Required]
-        public DateTime? EndTime { get; set; }
-        public bool Surprise { get; set; } = false;
     }
 
-    public class GameEvent : GameEventInput
+    public class Notification : NotificationInput, IEntity
     {
         public int Id { get; set; }
     }
-
 }
