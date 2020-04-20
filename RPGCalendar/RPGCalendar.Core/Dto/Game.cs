@@ -11,7 +11,7 @@
         public int GameMaster { get; set; }
         public List<int>? Players { get; set; }
         [Required]
-        public DateTime? GameTime { get; set; }
+        public GameCalendar? GameCalendar { get; set; }
     }
     public class Game : GameInput
     {

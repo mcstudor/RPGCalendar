@@ -19,6 +19,6 @@
         public List<int> _players = new List<int>();
 
         //this property is current in game time. the type will be change after game calendar is implemented
-        public DateTime GameTime { get; set; }
+        public GameCalendar? GameCalendar { get; set; }
     }
 }

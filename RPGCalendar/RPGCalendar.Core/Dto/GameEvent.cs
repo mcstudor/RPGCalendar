@@ -17,7 +17,7 @@
         public bool Surprise { get; set; } = false;
     }
 
-    public class GameEvent : GameEventInput
+    public class GameEvent : GameEventInput, IEntity
     {
         public int Id { get; set; }
     }
