@@ -3,9 +3,9 @@
     using Core.Dto;
     using Core.Services;
 
-    public class GameItemController : BaseApiController<GameItem, GameItemInput>
+    public class ItemController : BaseApiController<Item, ItemInput>
     {
-        public GameItemController(IGameItemService service) :
+        public ItemController(IItemService service) :
             base(service)
         {
 
