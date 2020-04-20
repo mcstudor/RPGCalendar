@@ -1,0 +1,45 @@
+.tbl{
+    width: 1000px;
+    border: black;
+    border-style: groove;
+}
+
+.th{
+    border: black;
+    border-style: groove;
+    background-color: teal;
+    text-indent: 5px;
+}
+
+.td{
+    height: 50px;
+    vertical-align: bottom;
+    border: black;
+    border-style: groove;
+    text-align: left;
+    text-indent: 5px;
+    
+}
+
+.th,.td {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.tbl-top{
+    width: 1000px;
+}
+
+.th-btn{
+    float: right;
+}
+
+.th-title, .th-btn{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+ 
+ .btn-create{
+     width: 1000px;
+     color: white;
+     background-color: slateblue;
+
+ }

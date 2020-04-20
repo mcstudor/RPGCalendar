@@ -22,7 +22,6 @@
 
             CreateMap<Dto.GameInput, Game>();
             CreateMap<Game, Dto.Game>();
-
 /*            CreateMap<Dto.GameCalendarInput, GameCalendar>();
             CreateMap<GameCalendar, Dto.GameCalendar>();*/
         }

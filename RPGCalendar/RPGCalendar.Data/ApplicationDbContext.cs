@@ -19,6 +19,7 @@
         public DbSet<GameNotification> GameNotifications { get; set; }
         public DbSet<Game> Games { get; set; }
         //public DbSet<GameCalendar> GameCalendars { get; set; }
+        
         private IHttpContextAccessor HttpContextAccessor { get; set; }
 #nullable enable
 
